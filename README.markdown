@@ -1,7 +1,7 @@
 editor
 ======
 
-Launch `$EDITOR` in your program.
+Launch $EDITOR in your program.
 
 example
 =======
