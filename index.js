@@ -11,7 +11,6 @@ module.exports = function (file, opts, cb) {
     
     setRaw(true);
     var ps = spawn(editor, [ file ], { customFds : [ 0, 1, 2 ] });
-    process.stdin.pipe(ps);
     
     ps.on('exit', function (code, sig) {
         setRaw(false);
