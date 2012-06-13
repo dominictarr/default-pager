@@ -7,7 +7,8 @@ module.exports = function (file, opts, cb) {
     }
     if (!opts) opts = {};
     
-    var editor = opts.editor || process.env.EDITOR || 'vim';
+    var ed = /^win/.test(process.platform) ? 'notepad' : 'vim';
+    var editor = opts.editor || process.env.VISUAL || process.env.EDITOR || ed;
     
     setRaw(true);
     var ps = spawn(editor, [ file ], { customFds : [ 0, 1, 2 ] });
