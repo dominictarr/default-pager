@@ -1,6 +1,6 @@
 {
     "name" : "default-pager",
-    "version" : "0.0.4",
+    "version" : "1.0.0",
     "description" : "launch $PAGER in your program",
     "main" : "index.js",
     "bin" : {},
