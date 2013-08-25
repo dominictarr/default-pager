@@ -1,28 +1,18 @@
 {
-    "name" : "editor",
+    "name" : "default-pager",
     "version" : "0.0.4",
-    "description" : "launch $EDITOR in your program",
+    "description" : "launch $PAGER in your program",
     "main" : "index.js",
     "bin" : {},
-    "directories" : {
-        "example" : "example",
-        "test" : "test"
-    },
     "dependencies" : {},
-    "devDependencies" : {
-        "tap" : "~0.2.5"
-    },
-    "scripts" : {
-        "test" : "tap test/*.js"
-    },
     "repository" : {
         "type" : "git",
-        "url" : "git://github.com/substack/node-editor.git"
+        "url" : "git://github.com/dominictarr/default-pager.git"
     },
-    "homepage" : "https://github.com/substack/node-editor",
+    "homepage" : "https://github.com/dominictarr/default-pager",
     "keywords" : [
         "text",
-        "edit",
+        "pager",
         "shell"
     ],
     "author" : {
