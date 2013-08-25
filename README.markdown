@@ -1,51 +1,20 @@
-editor
+default-pager
 ======
 
-Launch $EDITOR in your program.
+Launch $PAGER in your program.
 
-example
+adapted from [substack/node-editor](https://github.com/substack/node-editor)
+
+Example
 =======
 
 ``` js
-var editor = require('editor');
-editor('beep.json', function (code, sig) {
-    console.log('finished editing with code ' + code);
-});
-```
+var pager = require('default-pager')
 
-***
-
-```
-$ node edit.js
-```
-
-![editor](http://substack.net/images/screenshots/editor.png)
-
-```
-finished editing with code 0
-```
-
-methods
-=======
-
-``` js
-var editor = require('editor')
-```
-
-editor(file, opts={}, cb)
--------------------------
-
-Launch the `$EDITOR` (or `opts.editor`) for `file`.
-
-When the editor exits, `cb(code, sig)` fires.
-
-install
-=======
-
-With [npm](http://npmjs.org) do:
-
-```
-npm install editor
+stream.pipe(pager(function () {
+  //user exited
+  console.log('done!')
+})
 ```
 
 license
