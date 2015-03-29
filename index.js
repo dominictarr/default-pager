@@ -12,7 +12,7 @@ module.exports = function (opts, cb) {
       || 'more'
     
     setRaw(true);
-    var ps = spawn(pager, opts.args || [], { customFds : [ null, 1, 2 ] });
+    var ps = spawn(pager, opts.args || [], { stdio : [ null, 1, 2 ] });
     
     ps.on('exit', function (code, sig) {
         setRaw(false);
