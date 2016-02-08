@@ -20,6 +20,10 @@ module.exports = function (opts, cb) {
         if (typeof cb === 'function') cb(code, sig)
     });
 
+    ps.stdin.on('error', function (e) {
+        // Ignore EPIPE and ECONNRESET.
+    });
+
     return ps.stdin
 };
 
