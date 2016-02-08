@@ -20,6 +20,10 @@ module.exports = function (opts, cb) {
         if (typeof cb === 'function') cb(code, sig)
     });
 
+    ps.stdin.on('error', function (e) {
+        if (!e.errno || e.errno !== 'EPIPE') { throw(e); }
+    });
+
     return ps.stdin
 };
 
