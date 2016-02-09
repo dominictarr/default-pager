@@ -23,7 +23,8 @@ module.exports = function (opts, cb) {
     return ps.stdin
 };
 
-var tty = require('tty');
 function setRaw (mode) {
-    process.stdin.setRawMode ? process.stdin.setRawMode(mode) : tty.setRawMode(mode);
+    if (process.stdin.setRawMode) {
+        process.stdin.setRawMode(mode);
+    }
 }
