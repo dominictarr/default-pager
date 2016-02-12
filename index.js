@@ -21,7 +21,7 @@ module.exports = function (opts, cb) {
     });
 
     ps.stdin.on('error', function (e) {
-        if (!e.errno || e.errno !== 'EPIPE') { throw(e); }
+        // Ignore EPIPE and ECONNRESET.
     });
 
     return ps.stdin
