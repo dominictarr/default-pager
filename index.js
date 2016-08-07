@@ -10,6 +10,12 @@ module.exports = function (opts, cb) {
     var pager = opts.pager 
       || process.env.PAGER 
       || 'more'
+
+    if (pager.indexOf(' ') > 0) {
+        var pagerAndArgs = pager.split(/\s+/);
+        pager = pagerAndArgs[0]
+        opts.args = pagerAndArgs.slice(1)
+    }
     
     setRaw(true);
     var ps = spawn(pager, opts.args || [], { stdio : [ null, 1, 2 ] });
