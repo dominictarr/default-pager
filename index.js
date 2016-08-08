@@ -11,14 +11,16 @@ module.exports = function (opts, cb) {
       || process.env.PAGER 
       || 'more'
 
+    opts.args || (opts.args = []);
+
     if (pager.indexOf(' ') > 0) {
         var pagerAndArgs = pager.split(/\s+/);
-        pager = pagerAndArgs[0]
-        opts.args = pagerAndArgs.slice(1)
+        pager = pagerAndArgs[0];
+        Array.prototype.push.apply(opts.args, pagerAndArgs.slice(1));
     }
     
     setRaw(true);
-    var ps = spawn(pager, opts.args || [], { stdio : [ null, 1, 2 ] });
+    var ps = spawn(pager, opts.args, { stdio : [ null, 1, 2 ] });
     
     ps.on('exit', function (code, sig) {
         setRaw(false);
