@@ -9,6 +9,7 @@ module.exports = function (opts, cb) {
     
     var pager = opts.pager 
       || process.env.PAGER 
+      || opts.defaultPager
       || 'more'
     
     setRaw(true);
